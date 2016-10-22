@@ -1,0 +1,61 @@
+数据传播操作一：  复制（（把自己赋给一个新的变量））
+复制数据的时候，如果是基本类型；产生的是数据副本，改变副本并不影响原来的数据;
+var a = 10;
+	var b = a;
+	b++;
+	console.log(a,b);
+  结果是  10 11;
+  
+  
+  
+但是如果是对象数组的引用类型，复制的是数据的地址；
+结果的都跟着引用类型改变
+
+var a = [1,2,3];
+	var b = a;
+	b[0] = 99;
+	console.log(a,b);
+    
+test.html:11 [99, 2, 3] [99, 2, 3]
+
+数据传播操作二： 数据作为参数传播，数据的储存是基本的就是值，实际传递的就是值，函数内部改变，并不影响；
+function swap(a,b){
+	var temp;
+	temp = a ;
+	a % b != 0;
+	b = temp ;
+	// console.log(a,b);
+}
+var x = 10 ;
+var y = 20;
+swap(x,y);
+
+
+函数运行调用的结果是 10 20 
+
+但是如果储存的方式是对象方法类型的，引用的值；跟着函数内部进行改变；结果的都跟着引用类型改变
+var Vector =function（）{};
+Vector.reverse = function(vector){
+	vector.x = - vector.x;
+	vector.y = - vector.y;
+
+
+
+}
+
+var v = {x : 1, y:2};
+Vector.reverse(v);
+v的值随着函数内部改变；
+
+
+数据传播操作三：比较大小。返回布尔值 引用地址的比较显然无意义；
+
+
+
+
+
+
+
+
+
+
