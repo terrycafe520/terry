@@ -130,6 +130,9 @@ var arr = [1,2,3,4,5,6,7];
 	arr.reverse();
 	console.log(arr);
 		自己犯错的地方字符串没有加引号，会被认为是A未定义；
+	var arr = [1,2,3,4,5,6,7,8,9,10,11,12];				
+
+	console.log(arr.reverse());
 	2.
 	排序、默认情况，比较字符编码顺序
 		arr.sort();
@@ -182,6 +185,34 @@ var arr = [1,2,3,4,5,6,7];
 	console.log(str);		
 	
 	
+正则表达式方法：
+谁的方法，谁打点调用：
+字符串.字符串方法（）
+正则表达式.正则方法（）
+本质是在字符串里面去找出或者测试是不是符合正则表达式；	
+	1.exec（）
+	var reg = /abc/g；//注意要先定义正则；告知要匹配的内容，用正则表达出来；
+	var str = "alsefhhaghkgkgkhdhjkl jkgh abc";
+	var arr =reg.exec(str);
+	console.log(arr);
+	console.log(arr.index);
+	2.test（）
+	var reg = /abc/;
+	var str = "aabbccddabchgjkhogjlghhkjg";
+	console.log(reg.test(str));// 结果是true；
+	console.log(str.search(reg));//结果是12
+	可以直接在控制台：
+	/\s+/.test("abc ad eo");
 
+	
+
+DOM体验：
+	1.获取元素  添加事件的函数；
+	var odiv = document.getElementById("box");
+	var okala = document.getElementById("kaola");
+	odiv.obclick = function(){
+		odiv.style.backgroundColor = "yellow";
+		okaola.src ="images/kaola2.jpeg";
+	}
 	
 
