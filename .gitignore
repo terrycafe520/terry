@@ -143,7 +143,45 @@ var arr = [1,2,3,4,5,6,7];
 	 
 	
 	
+正则表达式：是引用类型，主要功能是匹配模型，类型也是对象；保存的是地址，用下标索引跟机器沟通；是对象的话  就可以作为参数；
+案例：正确输入一个电话号码，010-12345678.用户输入正确返回一个right，错误返回一个wrong。
+	var num = prompt("qingshuru ");
+ 	var reg = /^\d{3}\-\d{8}$/;
+ 	if(reg.test(num)){
+ 		alert("right");
+
+ 	}else{
+ 		alert("wrong");
+ 	}	    
 	    
-	    
-	    
+	1.split和join是相反的，案例为空格分割成新的数组；有参数则参数当做逗号
+	splice的话是插入删除，数据的形式不变
+		
+	var str = "aa bbb   c  dd  eeeeeee";
+	var arr = str.split(/\s+/);
+	console.log(arr);
+	结果：["aa", "bbb", "c", "dd", "eeeeeee"]
 	
+	2.match  默认找到第一个组成的数组，可以支持模糊匹配(/a+/g)，(/o\s+o/g)
+	var str =  "bbaacaaaadddaeeeeeaaf";
+ 	var arr = str.match("a");
+ 	console.log(arr);
+	3.search不支持全局g,都是第一个匹配位置；
+	var str = "aaa o o bbb o   ooo  aaa";
+ 	console.log(str.search(/o\s+o/g));
+	4.最常见的是replace；2个参数，删除的和替换的
+	改网址var str = "www.hello.com";
+	str = str.replace("hello","byebye");
+	console.log(str);
+	另外一种方式。改网址：
+	str = str.replace(/\.(\w+)\./,function(match,$1){
+			return ".byebye.";
+	过滤字符串中空格方法：	
+	var str = "aa b   c d e f ";
+	str = str.replace(/\s+/g,"");
+	console.log(str);		
+	
+	
+
+	
+
