@@ -52,10 +52,98 @@ v的值随着函数内部改变；
 
 
 
+数组的遍历：
+ 	var arr = [1,2,3,4,50];
+ 	for(var i = 0 ; i <= arr.length - 1;i++){
+ 		console.log(arr[i]);
+ 	}
+    // arr.length 是数组内部存了多少个数据  5个数字 遍历的时候
+    // 从0开始 0 1 2 3 4 i=0 1 2 3 4 所以i <=(5-1)
 
 
+案列计算阶乘之和：
+
+var arr = [1,2,3,4,5,6,7];
+	var sum = 0 ;
+	for(var i = 0 ;i < arr.length ; i++){
+		sum += jiecheng(arr[i])
+	}
+	console.log(sum);
+	// 取出每一项；
+
+	// 阶乘函数
+	function jiecheng(a){
+		if(a == 0 ){
+			return 1;
+
+		}else{
+			var mul = 1;
+			for(var i = 1 ; i <= a ; i++){
+				mul *= i;
+			}
+			return mul;
+		}
 
 
+数组的方法：
+首尾操作：
+        1.
+	var arr = [1,2,3,4,5];
+	console.log(arr.push(8));  结果是6   push拉长
+	2.
+	var arr = [1,2,3,4,5];
+	console.log(arr.push("8",10,true,[2,3]));  结果是9   push拉长
+	 //console.log(arr)会是[1,2,3,4,5，"8",10,true,[arry2])]
+	3.
+	var arr = [1,2,3,4,5];
+	console.log(arr.pop());
+	console.log(arr);
+	结果是[1,2,3,4]
+	4.
+	//unshift() 在数组开头添加一个或多个元素，并返回数组的新长度。
+		console.log(arr.unshift("haha"));
+		console.log(arr);
+	5.shift() 从数组移出第一个元素，并返回该元素。
+            console.log(arr.shift());
+            console.log(arr);	
 
-
-
+合并和拆分
+	1.concat
+        var arr = [1,2,3,4,5];
+	var arr2= [8,9,10,11]
+	var arr3 = arr.concat(arr2);
+	2.slice() 从数组提取一个片段，并作为一个新数组返回
+	var arr = [1,2,3,4,5,6,7,8,9,10,11];
+	var arr2= arr.slice(3,8)
+	console.log(arr2);
+	结果是[4,5,6,7,8]     不写end：表示从start开始截取到最后一个数据。
+	3.splice() 方法用于插入、删除或替换数组的元素
+	var arr = [1,2,3,4,5,6,7,8,9,10,11];
+	arr.splice(3,5);
+	console.log(arr);
+	删除则arr.splice(3,5); 删除第四项开始后面5位；5代表的不是下标而是个数  
+	插入则arr.splice(3,0,"5");  插一定加0 告知是插入 内容写后面
+	替换则arr.splice(3,4,"hahhhha","xixi"),从第三项之后，删除5项目，替换成我们给的数字；
+倒序
+	1.
+	var arr =["A,B,C,D,E,F"];
+	arr.reverse();
+	console.log(arr);
+		自己犯错的地方字符串没有加引号，会被认为是A未定义；
+	2.
+	排序、默认情况，比较字符编码顺序
+		arr.sort();
+		console.log(arr);
+转字符串
+      1. join() 将数组的所有元素连接成一个字符串。
+         join加入的意思，在数组数据之间加入一个连字符，整体连城一个字符串。
+         连字符：join方法的参数。不传参数，默认逗号是连字符。
+         数组转成字符串，用新变量接收。
+	 
+	 
+	
+	
+	    
+	    
+	    
+	
