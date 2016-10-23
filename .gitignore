@@ -203,6 +203,50 @@ var arr = [1,2,3,4,5,6,7];
 	console.log(str.search(reg));//结果是12
 	可以直接在控制台：
 	/\s+/.test("abc ad eo");
+	
+	
+arguments对象初步认识：
+	只要掌握arguments.length and arguments[];
+	与数组类似但是没有数组的方法。
+	原理是如果定义2个函数相同的参数，那么前面一个函数会被覆盖，不执行。这时候想如何才能让同一个函数，有不同的效果，传入的参数都是一样的，但是可以通过arguments
+	对实际参数的调用，改变参数的列表，从而影响到函数的不同结果。因为函数的参数传播可以不一致，这样就诞生了arguments这样的对象，里面把所有的实际参数都存储起来
+	并且可以通过下标或者长度进行调用；这样一个函数可以有多种结果；应该是说同一个函数里面可以变化，比如利用arguments的长度来判断，传入的参数个数，是1个执行什么，
+	多个又执行什么；
+	1. function sum(a,b){
+		switch(arguments.length){
+			case 1:
+			return ++a;
+			break;
+			case 2:
+			return a + b;
+			break;
+		}
+	console.log(sum(a,b));
+	}
+	sum(45,436,457,34,23,12);（解决的是需要不断给实际参数让函数得到不一样的结果，
+	arguments让在一个实际参数组里面，去选择传导的参数，）
+	案例：<script>
+
+	 function sum(a,b){
+		switch(arguments.length){
+			case 1:
+			return ++a;
+			break;
+			case 2:
+			return a + b;
+			break;
+		}
+	console.log(sum(a,b));
+	console.log(arguments[3]);
+	}
+	sum(45,436,457,34,23,12);
+	</script>
+	输出结果是
+	481
+        34
+	这中间解决的批量处理的问题是，不用每次都个函数去传递参数，可以直接罗列在一起，然后通过arguments访问到，得到不同的结果；
+
+
 
 	
 
