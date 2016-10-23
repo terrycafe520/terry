@@ -245,9 +245,55 @@ arguments对象初步认识：
 	481
         34
 	这中间解决的批量处理的问题是，不用每次都个函数去传递参数，可以直接罗列在一起，然后通过arguments访问到，得到不同的结果；
+	利用这个批量处理的优势，思考：
+	更牛逼的，我们可以无限参数，设计一个函数sum，能够接受无限参数？
+	
 
+闭包概览：
+        问题出发点在于，如何获得g()，g()是我要输出的，正常是g()是无法输出的在发f()里面。通过
+	通过给 设立一个新变量，函数天然是闭包，可以记忆他外面的参数环境，
+	function f(x) {
+		function g() {
+	        return x;
+	    }
+	    return g;
+	}
 
+	// //Tell f to create a new g
+	// var g5 = f(5);
 
+	// //g5 is a function that always returns 5
+	// alert(g5());
+
+	//Tell f to create another new g
+	var g1 = f(1);
+
+	//g1 is a function that always returns 1
+	alert(g1());
+观察闭包的案例：
+	var arr = [];
+	for(var i = 0; i<= 10; i++){
+		arr[i] = function(){
+			alert(i);
+		}
+	}
+	arr[6]();
+	arr[9]();
+	arr[10]();
+	全部输出的是11，而不是6,9,10；
+	解决的办法：
+	var arr = [];
+	for(var i = 0; i<= 10; i++){
+		(function(m){arr[m] = function(){
+			alert(m);
+		}
+		})(i);
+	}
+	arr[6]();
+	arr[9]();
+	arr[10]();
+	这样解决可以求出arr[];
+	
 	
 
 DOM体验：
@@ -259,4 +305,25 @@ DOM体验：
 		okaola.src ="images/kaola2.jpeg";
 	}
 	
+
+IIFE:
+1function sum(a,b,c){
+2	return (function(a,b){
+3		return a >= b ? a : b;
+4	})(a,b) + c;
+}
+
+
+DOM标准中的0级的事件绑定方法：
+	给获取的对象添加动作，绑定时间就是复制函数给对象，让你的对象也有功能了；
+
+	var odiv = document.getElementById("box");
+	odiv.onclick = function(){
+		alert("hello");
+	}
+	// also can be 
+	odiv.onclick = fun ;
+	function fun(){
+		alert("hello");
+	}
 
